@@ -1,35 +1,38 @@
-import { Text, Box, Image } from "native-base";
-import DocumentHeader from "../components/header/DocumentHeader";
+import { useState } from "react";
+import { Text, Box, ScrollView } from "native-base";
 import { useSelector } from "react-redux";
-import { SvgUri } from 'react-native-svg';
+
+import DocumentHeader from "../components/header/DocumentHeader";
+import ButtonIcon from "../components/document/ButtonIcon";
+import DocumentList from "../components/document/DocumentList";
 
 
 
 export default function DocumentsView() {
-  const items = useSelector(state => state.data.value ?? []); 
-
-  function svgParse(svg) {
-    const svgJson = JSON.stringify({ svg: svg });
-    const parsedSvg = JSON.parse(svgJson);
-
-    return parsedSvg.svg;
-  }
+  const items = useSelector(state => state.data.value ?? []);   
+  const docSelected = useSelector(state => state.docSelect.value);
 
   return (
-    <Box px="5">
-      <DocumentHeader />
-      <Text fontWeight="600" mt="2" fontSize="26">Döküman Merkezi</Text>        
+    <Box style={{backgroundColor: 'white'}}>
+      <Box px="5">
+        <DocumentHeader />
+        <Text fontWeight="600" mt="2" fontSize="26">Döküman Merkezi</Text>
+        <ButtonIcon items={items} />
+      </Box>
+      <ScrollView style={{backgroundColor: '#F1F1F1'}} p="5">        
+        {items.map((item, index) => (
+          <DocumentList 
+            dir={item.dir} 
+            dirs={item.dirs} 
+            key={index} 
+            display={docSelected ? (item.dir.title === docSelected ? 'block' : 'none') : 'block'}
+            style={{ display: docSelected ? (item.dir.title === docSelected ? 'block' : 'none') : 'block' }} 
+          />  
+        ))}
+      </ScrollView>
       
-      {items.map((item, index) => (
-        <Box key={index}>
-          {item.dir?.icon &&             
-            <Box>
-              <SvgUri uri={"https://saray.com/drive/icons/" + item.dir.path + ".svg"} width="100" height="100" />
-            </Box>
-          }
-        </Box>
-      ))}
-
     </Box>
   );
 }
+
+
