@@ -3,7 +3,7 @@ import { Box, Input, Icon } from "native-base";
 import { StyleSheet } from "react-native";
 
 
-export default function SearchForm() {
+export default function SearchForm({pt}) {
     return (
         <Box alignItems="center" w="100%" mt="5">
             <Input 
@@ -13,6 +13,7 @@ export default function SearchForm() {
                 size="xl" 
                 style={styles.searchInput} 
                 pl="5"
+                pt={pt ? pt : "3"}
                 InputRightElement={
                     <Box 
                         bg="white" 

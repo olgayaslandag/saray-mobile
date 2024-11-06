@@ -1,18 +1,39 @@
 import { View } from "native-base";
-import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
+import { TouchableOpacity } from 'react-native';
+
+import HomeIcon from "./icons/HomeIcon"
+import DocumentIcon from "./icons/DocumentIcon";
+import SustainabilityIcon from "./icons/SustainabilityIcon";
+import CompanyIcon from "./icons/CompanyIcon";
+import NotificationIcon from "./icons/NotificationIcon";
+
+
+
+function GetIcon({ name, isFocused, callback }) {
+  const icons = {
+    Home: HomeIcon,
+    Documents: DocumentIcon,
+    Sustainability: SustainabilityIcon,
+    Company: CompanyIcon,
+    Notification: NotificationIcon,
+  };
+
+  const IconComponent = icons[name] || HomeIcon;
+
+  return (
+    <TouchableOpacity onPress={callback}>
+      <IconComponent width="30" height="30" fill={isFocused ? "white" : "black"} />
+    </TouchableOpacity>
+  );
+}
+
 
 export default function CustomTabBar({ state, descriptors, navigation }) {
-    return (
+
+  return (
       <View style={styles.tabContainer}>
-        {state.routes.map((route, index) => {
-          const { options } = descriptors[route.key];
-          const label =
-            options.tabBarLabel !== undefined
-              ? options.tabBarLabel
-              : options.title !== undefined
-              ? options.title
-              : route.name;
-  
+        {state.routes.map((route, index) => {          
+
           const isFocused = state.index === index;
   
           const onPress = () => {
@@ -26,9 +47,7 @@ export default function CustomTabBar({ state, descriptors, navigation }) {
               navigation.navigate(route.name);
             }
           };
-  
-          const iconName = route.name === "Home" ? "home" : "book-open";
-  
+                      
           return (
             <View key={index} style={styles.tab}>
                 <View
@@ -41,13 +60,9 @@ export default function CustomTabBar({ state, descriptors, navigation }) {
                     justifyContent: "center",
                     alignItems: "center",
                 }}
-                >
-                    <FontAwesome5
-                        name={iconName}
-                        size={26}
-                        color={isFocused ? "white" : "black"}
-                        onPress={onPress}                
-                    />            
+                >    
+                    <GetIcon isFocused={isFocused} name={route.name} callback={onPress} />
+                              
                 </View>
             </View>
           );

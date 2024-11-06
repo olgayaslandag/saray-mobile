@@ -1,7 +1,7 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { NativeBaseProvider, StatusBar} from "native-base";
+import { NativeBaseProvider, StatusBar, extendTheme } from "native-base";
 
 import store from './app/store'
 import { Provider } from 'react-redux'
@@ -16,13 +16,51 @@ import CompanyView from "./app/views/CompanyView";
 import Synchronize from "./app/components/Synchronize";
 
 
+import { useFonts } from 'expo-font';
+import AppLoading from 'expo-app-loading';
+
+
+
+const theme = extendTheme({
+  fontConfig: {
+    'SarayFont': {
+      600: {
+        normal: 'SarayFontBold'
+      },
+      700: {
+        normal: 'SarayFontBold'
+      },
+      800: {
+        normal: 'SarayFontBold'
+      },
+      900: {
+        normal: 'SarayFontBold'
+      },
+    }
+  },
+  fonts: {
+    heading: "SarayFont",
+    body: "SarayFont",
+    mono: "SarayFont",    
+  },
+});
+
 
 const Tab = createBottomTabNavigator();
 export default function App() {
+  const [fontsLoaded] = useFonts({
+    'SarayFont': require('./assets/fonts/SF-Pro-Rounded-Regular.otf'),
+    'SarayFontBold': require('./assets/fonts/SF-Pro-Rounded-Bold.otf'),
+  });
+
+  if (!fontsLoaded) {
+    return <AppLoading />;
+  }  
+
   return (
     <Provider store={store}>
       <Synchronize />
-      <NativeBaseProvider>
+      <NativeBaseProvider theme={theme}>
         <StatusBar style="auto" hidden={true} />
         <NavigationContainer>
           <Tab.Navigator tabBar={(props) => <CustomTabBar {...props} />} screenOptions={{headerShown: false}}>

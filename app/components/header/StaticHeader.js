@@ -1,5 +1,5 @@
 import { Box, View } from "native-base";
-import MenuButton from "./MenuButton";
+import MenuButton from "../icons/MenuButton";
 
 export default function StaticHeader() {
     return (

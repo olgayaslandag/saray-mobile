@@ -8,7 +8,7 @@ import HomeSlider from "../components/HomeSlider";
 export default function HomeScreen() {
   return (
     <ImageBackground 
-      source={{uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/HD_transparent_picture.png/1200px-HD_transparent_picture.png'}} 
+      source={require('../../assets/home/bg/home-bg-ekstruzyon.jpg')}
       style={{ width: "100%", height: "100%" }} 
       resizeMode="cover">
       <Box flex="1" px="5">

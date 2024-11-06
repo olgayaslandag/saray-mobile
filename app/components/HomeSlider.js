@@ -18,13 +18,13 @@ const DATA = [
 
 
 const { width } = Dimensions.get('window');
-const ITEM_WIDTH = width * 0.8;
+const ITEM_WIDTH = width * 0.7;
 
 
 function Item({ title, index }) {
     return (
         <Box style={styles.item}>
-            <Image source={{uri: 'https://saray.com/wp-content/uploads/2024/07/aluminyum.jpg'}} alt={title} width={ITEM_WIDTH} height="70%" style={styles.image}></Image>
+            <Image source={require('../../assets/home/home-ekstruzyon.jpg')} alt={title} width={ITEM_WIDTH} height="70%" style={styles.image}></Image>
         </Box>
     );
 }

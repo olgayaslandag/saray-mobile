@@ -1,14 +1,17 @@
 import { Box, Stack, HStack } from "native-base";
-import MenuButton from "./MenuButton";
+import MenuButton from "../icons/MenuButton";
 import SearchForm from "./SearchForm";
 
 export default function DocumentHeader() {
     return (
         <Stack direction="column" style={{marginTop: 30}}>
-          <HStack>                        
+          <HStack>  
+            <Box width="83%">
+              <SearchForm pt={2} />
+            </Box>                       
             <Box 
               width="10%" 
-              mr="7%" 
+              ml="7%" 
               justifyContent="center" 
               alignItems="flex-end" 
               mt="5"               
@@ -21,10 +24,7 @@ export default function DocumentHeader() {
                 alignItems="center">
                 <MenuButton />
               </Box>
-            </Box>  
-            <Box width="83%">
-              <SearchForm />
-            </Box>                      
+            </Box>                                   
           </HStack>          
         </Stack>
     );

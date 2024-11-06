@@ -1,5 +1,5 @@
 import { Box, Text, Image } from "native-base";
-import MenuButton from "./MenuButton";
+import MenuButton from "../icons/MenuButton";
 import UserAvatar from "./UserAvatar";
 
 
@@ -10,7 +10,7 @@ export default function HeaderUser() {
                 <UserAvatar />
             </Box>
             <Box width="30%" alignItems="flex-end" mt="3">
-              <MenuButton />
+              <MenuButton height={30} width={30} fill="black" />
             </Box>
         </>
     );
