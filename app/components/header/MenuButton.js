@@ -5,7 +5,7 @@ export default function MenuButton() {
         <FontAwesome5
             name="bars"
             size={30}
-            color="gray"
+            color="gray"            
             onPress={() => console.log('tıklandı')}                
         /> 
     );

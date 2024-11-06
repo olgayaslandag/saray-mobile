@@ -1,16 +1,14 @@
-import { Box, Text, Stack, HStack, VStack, Input, Icon, FlatList } from "native-base";
+import { Box, Text, Stack, HStack, VStack } from "native-base";
 import { ImageBackground } from "react-native";
 import HeaderUser from "../components/header/HeaderUser";
 import SearchForm from "../components/header/SearchForm";
 import HomeSlider from "../components/HomeSlider";
 
 
-
-
 export default function HomeScreen() {
   return (
     <ImageBackground 
-      source={{uri: ''}} 
+      source={{uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/HD_transparent_picture.png/1200px-HD_transparent_picture.png'}} 
       style={{ width: "100%", height: "100%" }} 
       resizeMode="cover">
       <Box flex="1" px="5">

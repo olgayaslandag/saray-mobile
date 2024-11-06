@@ -23,7 +23,7 @@ export default function App() {
     <Provider store={store}>
       <Synchronize />
       <NativeBaseProvider>
-        <StatusBar style="auto" />
+        <StatusBar style="auto" hidden={true} />
         <NavigationContainer>
           <Tab.Navigator tabBar={(props) => <CustomTabBar {...props} />} screenOptions={{headerShown: false}}>
             <Tab.Screen name="Home" component={HomeView} options={{headerShown: false}} />

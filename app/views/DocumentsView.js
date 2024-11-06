@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Text, Box, ScrollView } from "native-base";
 import { useSelector } from "react-redux";
 
@@ -26,7 +25,6 @@ export default function DocumentsView() {
             dirs={item.dirs} 
             key={index} 
             display={docSelected ? (item.dir.title === docSelected ? 'block' : 'none') : 'block'}
-            style={{ display: docSelected ? (item.dir.title === docSelected ? 'block' : 'none') : 'block' }} 
           />  
         ))}
       </ScrollView>

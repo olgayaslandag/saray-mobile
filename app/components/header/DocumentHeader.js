@@ -1,10 +1,10 @@
-import { Box, Stack, HStack, Text } from "native-base";
+import { Box, Stack, HStack } from "native-base";
 import MenuButton from "./MenuButton";
 import SearchForm from "./SearchForm";
 
 export default function DocumentHeader() {
     return (
-        <Stack direction="column">
+        <Stack direction="column" style={{marginTop: 30}}>
           <HStack>                        
             <Box 
               width="10%" 

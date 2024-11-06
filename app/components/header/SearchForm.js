@@ -40,6 +40,6 @@ export default function SearchForm() {
 const styles = StyleSheet.create({
     searchInput: {
       backgroundColor: 'white' ,
-      minHeight: 55   
+      minHeight: 40   
     }
 });
