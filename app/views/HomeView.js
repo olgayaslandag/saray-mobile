@@ -13,22 +13,20 @@ export default function HomeScreen() {
       resizeMode="cover">
       <Box flex="1" px="5">
         <Stack space={3} direction="column">        
-          <VStack>
             <HStack mt="10">
               <HeaderUser />
             </HStack>
-            <HStack>
-              <SearchForm />
-            </HStack>
-            <HStack>
-              <Text fontSize="24" fontWeight="700" mt="3">Yenilikler</Text>
-            </HStack>
-            <HStack>
-              <HomeSlider />
-            </HStack>
-          </VStack>        
+         
         </Stack>
+        <SearchForm />
+
+        <Text fontSize="24" fontWeight="700" mt="5">Yenilikler</Text>
       </Box>
+
+
+      <HomeSlider />
+
+      
     </ImageBackground>
   );
 }

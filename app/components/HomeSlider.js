@@ -30,16 +30,18 @@ function Item({ title, index }) {
 }
 export default function HomeSlider() {
     return (
-        <FlatList
-            data={DATA}
-            renderItem={({item}) => <Item title={item.title} />}
-            keyExtractor={(item, index) => index}
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            napToInterval={ITEM_WIDTH + 10}
-            snapToAlignment="center"
-            pagingEnabled
-        />        
+        <Box mt="20" pl="5">
+            <FlatList
+                data={DATA}
+                renderItem={({item}) => <Item title={item.title} />}
+                keyExtractor={(item, index) => index}
+                horizontal
+                showsHorizontalScrollIndicator={false}
+                napToInterval={ITEM_WIDTH + 10}
+                snapToAlignment="center"
+                pagingEnabled
+            />  
+        </Box>      
     );
 }
 
@@ -52,7 +54,7 @@ const styles = StyleSheet.create({
       marginVertical: 8,
       marginHorizontal: 0,    
       width: ITEM_WIDTH,
-      marginRight: 10
+      marginRight: 15
     },
     title: {
       fontSize: 32,

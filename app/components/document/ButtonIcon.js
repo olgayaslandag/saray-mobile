@@ -4,17 +4,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { docSelect } from "../../store/docSelectSlice";
 import titleReplace from "../../libs/titleReplace";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
+import GetDocIcon from "../GetDocIcon";
 
 
-function FolderIcon({ title, selected }) {
+function FolderIcon({ title, selected }) {  
     return (
       <Box style={{...styles.iconBox, backgroundColor: selected ? '#F1F1F1' : 'transparent'}}>
-        <FontAwesome5
-          name="home"
-          size={30}
-          color={selected ? "red" : "black"}
-          onPress={() => null}                
-        />
+        <GetDocIcon title={title} selected={selected} />      
       </Box>
     );    
 }
@@ -39,12 +35,13 @@ function Item({ item }) {
             </Box>  
           </Button>
         }
+        {docSelected === item.dir.title && <Box style={styles.pyramid}></Box>}        
       </Box>
     );
 }
   
   
-export default function ButtonIcon({ items}) {
+export default function ButtonIcon({ items }) {
   return (
     <FlatList 
       data={items}
@@ -73,7 +70,17 @@ const styles = StyleSheet.create({
   },
   iconTitle: {
     width: 80,
-    fontSize: 11,
+    fontSize: 13,
     textAlign: 'center'
-  }
+  },
+  pyramid: {
+    width: 0,
+    height: 0,
+    borderLeftWidth: 50,
+    borderLeftColor: 'transparent',
+    borderRightWidth: 50,
+    borderRightColor: 'transparent',
+    borderBottomWidth: 50,
+    borderBottomColor: '#F1F1F1',
+  },
 });

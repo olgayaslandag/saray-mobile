@@ -1,6 +1,6 @@
-import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import { Box, Input, Icon } from "native-base";
 import { StyleSheet } from "react-native";
+import SearchIcon from "../icons/SearchIcon";
 
 
 export default function SearchForm({pt}) {
@@ -10,10 +10,10 @@ export default function SearchForm({pt}) {
                 variant="rounded" 
                 placeholder="Ne Aramıştınız?" 
                 w="100%" 
-                size="xl" 
+                size="md" 
                 style={styles.searchInput} 
                 pl="5"
-                pt={pt ? pt : "3"}
+                pt={pt ? pt : "2"}
                 InputRightElement={
                     <Box 
                         bg="white" 
@@ -26,10 +26,10 @@ export default function SearchForm({pt}) {
                             height: '100%', 
                             justifyContent: 'center' 
                         }}>
-                        <Icon
-                            as={<FontAwesome5 name="search" />}
-                            size="5"
-                            color="gray.400"
+                        <SearchIcon                            
+                            fill="gray"
+                            width={20}
+                            height={20}
                         />
                     </Box>                      
                 } 

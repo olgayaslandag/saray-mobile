@@ -8,8 +8,10 @@ export default function StaticHeader() {
             p="4"            
             width="60"
             height="60"
-            alignItems="center"
-            ml="5"
+            alignItems="center"  
+            alignSelf="flex-end"          
+            mr="5"
+            position="fixed"
             style={{marginTop: 30, backgroundColor: 'white'}}>
             <MenuButton />
         </View>
