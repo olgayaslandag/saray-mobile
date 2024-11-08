@@ -22,7 +22,7 @@ export default function DocumentList({ dirs, display }) {
                       alt="thumbnail"
                       style={{ width: imageSize, height: imageSize * 1.5, borderRadius: 10 }}
                     />
-                    <Text style={{fontSize: 13}}>{item.title}</Text>
+                    <Text style={{fontSize: 12}}>{item.title}</Text>
                   </Box>
                 ))}
               </HStack>

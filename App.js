@@ -65,9 +65,9 @@ export default function App() {
   }
 
   return (
-    <Provider store={store}>
-      <Synchronize />
+    <Provider store={store}>    
       <NativeBaseProvider theme={theme}>
+        <Synchronize />
         <StatusBar style="auto" hidden={true} />
         <NavigationContainer onReady={onLayoutRootView}>
           <Tab.Navigator tabBar={(props) => <CustomTabBar {...props} />} screenOptions={{headerShown: false}}>

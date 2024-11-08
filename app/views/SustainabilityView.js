@@ -7,8 +7,8 @@ const backgroundImage = 'https://saray.com/wp-content/uploads/2024/04/enerji-con
 export default function SustainabilityView() {
     return (
         <ImageBackground source={{uri: backgroundImage}} style={styles.background} resizeMode="cover">                      
-            <ScrollView>
-                <StaticHeader />  
+            <StaticHeader /> 
+            <ScrollView>                 
                 <Box style={styles.contentBox} p="5">
                     <Text style={styles.pageTitle}>SARAY Sürdürülebilirlik Bir Geleceğe Yatırım Yapıyor</Text>
                     <Text fontSize="16">SARAY, sürdürülebilirlik ve çevre bilincini kurumsal misyonunun merkezine yerleştirerek, yenilenebilir enerji kaynaklarına önemli yatırımlar yapıyor. Bu yatırımlar, çevre dostu üretim süreçlerini desteklemekte ve karbon ayak izini belirgin bir şekilde azaltmaktadır.</Text>

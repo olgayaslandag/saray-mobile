@@ -1,12 +1,17 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { fileListApi } from "../api/fileListApi";
 import { useDispatch } from "react-redux";
 import { synchronize } from "../store/dataSlice";
+import { Modal, View, Text, Image } from "native-base";
+import LogoIcon from "./icons/LogoIcon";
+
 
 export default function Synchronize({ dir }) {
+    const [process, setProcess] = useState(false);
     const dispatch = useDispatch();
 
     useEffect(() => {
+        setProcess(true);
         (async () => {
             const result = await fileListApi({dir});            
             if(result.status) {
@@ -23,9 +28,17 @@ export default function Synchronize({ dir }) {
             }
 
             if(!result.status)
-                dispatch(synchronize([]));            
+                dispatch(synchronize([]));    
+            
+            setProcess(false)
         })();
     }, [dir]);
 
-    return null;
+    return (
+        <Modal isOpen={process} animationType="slide" transparent={true} bgColor="white">
+            <View>
+                <LogoIcon />
+            </View>
+        </Modal>
+    );
 }

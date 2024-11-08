@@ -35,7 +35,6 @@ function Item({ item }) {
           </Button>
         }
         <Box style={{...styles.pyramid, borderBottomColor: docSelected === item.dir.title ? '#F1F1F1' : 'transparent'}}></Box>
-        {/*docSelected === item.dir.title && <Box style={styles.pyramid}></Box>*/}        
       </Box>
     );
 }
@@ -74,7 +73,7 @@ const styles = StyleSheet.create({
   },
   iconTitle: {
     width: 70,
-    fontSize: 13,
+    fontSize: 12,
     textAlign: 'center'
   },
   pyramid: {
