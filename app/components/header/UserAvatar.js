@@ -15,8 +15,10 @@ export default function UserAvatar() {
 
 const styles = StyleSheet.create({
     image: {
-      borderWidth: 2, 
+      borderWidth: 2,
+      borderColor: '#F1F1F1', 
       overflow: 'hidden',
-      marginBottom: 15
+      marginBottom: 15,
+      marginTop: -15
     },
 });

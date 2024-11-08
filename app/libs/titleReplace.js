@@ -4,7 +4,7 @@ export default function titleReplace(title) {
         "ALU | LEAFLET - ALU | BROŞÜR",
         "CERTIFICATES - SERTİFİKALAR",
         "COLOR CHARTS - RENK KARTELALARI",
-        "INDUSTRIAL PROFILES - ENDÜSTRİYEL PROFİLLER",
+        "INDUSTRIAL PROFILES - ENDUSTRİYEL PROFİLLER",
         "PVC | CATALOG - PVC | KATALOG",
         "SARAY ROLL - ROLLER SHUTTER SYSTEMS",        
     ];

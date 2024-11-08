@@ -9,8 +9,18 @@ export default function Synchronize({ dir }) {
     useEffect(() => {
         (async () => {
             const result = await fileListApi({dir});            
-            if(result.status)
-                dispatch(synchronize(result.data));
+            if(result.status) {
+                const items = result.data.map(item => {
+                    return {
+                        dir: {
+                            title: item.dir.title,
+                            path: item.dir.path
+                        },
+                        dirs: item.dirs
+                    }
+                });
+                dispatch(synchronize(items));
+            }
 
             if(!result.status)
                 dispatch(synchronize([]));            

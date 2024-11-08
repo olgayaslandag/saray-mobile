@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'white', 
         borderTopLeftRadius: 30, 
         borderTopRightRadius: 30, 
-        marginTop: '40%',
+        marginTop: '70%',
     },
     pageTitle: {
         fontSize: 26, 

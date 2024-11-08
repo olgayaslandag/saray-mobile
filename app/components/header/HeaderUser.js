@@ -9,8 +9,8 @@ export default function HeaderUser() {
             <Box width="70%">
                 <UserAvatar />
             </Box>
-            <Box width="30%" alignItems="flex-end" mt="3">
-              <MenuButton height={30} width={30} fill="black" />
+            <Box width="30%" alignItems="flex-end">
+              <MenuButton />
             </Box>
         </>
     );

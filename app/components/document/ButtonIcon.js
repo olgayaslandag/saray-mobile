@@ -3,7 +3,6 @@ import { StyleSheet } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import { docSelect } from "../../store/docSelectSlice";
 import titleReplace from "../../libs/titleReplace";
-import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import GetDocIcon from "../GetDocIcon";
 
 
@@ -16,7 +15,7 @@ function FolderIcon({ title, selected }) {
 }
   
 function Item({ item }) {
-  const docSelected = useSelector(state => state.docSelect.value);
+  const docSelected = useSelector(state => state.docSelect.value || "ALU | CATALOG - ALU | KATALOG");
 
   const dispatch = useDispatch();
 
@@ -25,8 +24,8 @@ function Item({ item }) {
   }
 
     return (
-      <Box height={120}>
-        {item.dir?.icon &&             
+      <Box style={{justifyContent: 'center', alignItems: 'center', marginLeft: 5}}>
+        {item.dir &&             
           <Button variant="transparent" style={styles.iconButton} p={0} onPress={() => HandleSelect(item.dir.title)}>
             <Box>
               <FolderIcon title={item.dir.title} selected={docSelected === item.dir.title} />         
@@ -35,19 +34,21 @@ function Item({ item }) {
             </Box>  
           </Button>
         }
-        {docSelected === item.dir.title && <Box style={styles.pyramid}></Box>}        
+        <Box style={{...styles.pyramid, borderBottomColor: docSelected === item.dir.title ? '#F1F1F1' : 'transparent'}}></Box>
+        {/*docSelected === item.dir.title && <Box style={styles.pyramid}></Box>*/}        
       </Box>
     );
 }
   
   
 export default function ButtonIcon({ items }) {
-  return (
+  return (        
     <FlatList 
-      data={items}
+      data={items.filter(c => c.dir.title !== "icons")}
       renderItem={({item}) => <Item item={item} />}
       keyExtractor={(item, index) => index}
       horizontal
+      showsHorizontalScrollIndicator={false}
     />
   );
 }
@@ -57,30 +58,33 @@ export default function ButtonIcon({ items }) {
 const styles = StyleSheet.create({
   iconButton: {
     marginRight: 5,
+    marginLeft: 5,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   iconBox: {
-    width: 80,
-    height: 80,
+    width: 70,
+    height: 70,
     borderWidth: 1,
     borderRadius: 20,
     borderColor: '#F1F1F1',
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 0
+    padding: 0,
   },
   iconTitle: {
-    width: 80,
+    width: 70,
     fontSize: 13,
     textAlign: 'center'
   },
   pyramid: {
     width: 0,
     height: 0,
-    borderLeftWidth: 50,
+    borderLeftWidth: 20,
     borderLeftColor: 'transparent',
-    borderRightWidth: 50,
+    borderRightWidth: 20,
     borderRightColor: 'transparent',
-    borderBottomWidth: 50,
+    borderBottomWidth: 20,
     borderBottomColor: '#F1F1F1',
   },
 });

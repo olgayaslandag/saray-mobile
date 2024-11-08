@@ -76,7 +76,7 @@ const styles = {
         width: 300,
         height: 60,
         position: "absolute",
-        bottom: 50,
+        bottom: 20,
         alignSelf: "center",
         flexDirection: "row",
         justifyContent: "space-around",

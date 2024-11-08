@@ -15,10 +15,12 @@ export default function DocumentsView() {
     <Box style={{backgroundColor: 'white'}}>
       <Box px="5">
         <DocumentHeader />
-        <Text fontWeight="600" mt="4" fontSize="26">Döküman Merkezi</Text>
+        <Text fontWeight="600" mt="4" fontSize="26">Döküman Merkezi</Text>        
+      </Box>
+      <Box>
         <ButtonIcon items={items} />
       </Box>
-      <ScrollView style={{backgroundColor: '#F1F1F1', marginBottom: 100}} p="5">        
+      <ScrollView style={{backgroundColor: '#F1F1F1', marginBottom: 100, minHeight: '100%'}} p="5">        
         {items.map((item, index) => (
           <DocumentList 
             dir={item.dir} 

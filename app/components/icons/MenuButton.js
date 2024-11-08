@@ -1,6 +1,6 @@
 import Svg, { Path, G } from "react-native-svg"
 
-export default function MenuButton({ fill, width, height }) {
+export default function MenuButton({ fill="black", width=30, height=30 }) {
 
     return (
         <Svg width={width} height={height} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 31.74 22.28">        
