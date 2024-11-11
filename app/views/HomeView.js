@@ -18,15 +18,15 @@ export default function HomeScreen() {
         <Stack space={3} direction="column">        
             <HStack mt="10">
               <HeaderUser />
-            </HStack>
-         
+            </HStack>         
         </Stack>
         <SearchForm />
 
-        <Text fontSize="24" fontWeight="700" mt="5">Yenilikler</Text>
+        
       </Box>
 
       <Box flex="3" style={{marginBottom: 80}}>
+      <Text fontSize="24" fontWeight="700" mt="5" px="5">Yenilikler</Text>
         <HomeSlider setActive={setActive} />
       </Box>
       

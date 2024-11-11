@@ -19,18 +19,19 @@ export default function SearchForm({ pt }) {
     return (
         <Box alignItems="center" w="100%" mt="5">
             {!search && !open && <SearchFormInput pt={pt} search={search} setSearch={setSearch} order={1} setOpen={setOpen} />}            
-
+            
             <Modal animationType="slide" visible={search || open ? true : false} transparent={false}>
-                <Box style={{flex: 1}}>
-                    <Box style={styles.modalContent}>
-                        <HStack width="100%" p="5" pb="0">                            
-                            <SearchFormInput search={search} setSearch={setSearch} order={2} width="90%" />
-                            <Button size="sm" variant={"ghost"} onPress={HandleClose}>                                
+                <Box style={styles.modal.container}>
+                    <HStack width="100%" px="5" pt="2" pb="0">                            
+                        <SearchFormInput search={search} setSearch={setSearch} order={2} width="90%" />
+                        <Box style={styles.modal.close}>
+                            <Button size="md" variant={"ghost"} onPress={HandleClose} p="0">                                
                                 <FontAwesome5 name="times" size={20} color="black" />
                             </Button>
-                        </HStack>
-                        <SearchResult />
-                    </Box>
+                        </Box>
+                    </HStack>
+                    
+                    <SearchResult search={search} />
                 </Box>
             </Modal>
         </Box>
@@ -38,16 +39,24 @@ export default function SearchForm({ pt }) {
 }
 
 const styles = StyleSheet.create({
-    modalContent: {
-        backgroundColor: '#fff', 
-        borderTopLeftRadius: 30, 
-        borderTopRightRadius: 30,
-        /*
-        shadowColor: "#000",
-        shadowOffset: { width: 0, height: -2 },
-        shadowOpacity: 0.2,
-        shadowRadius: 5,
-        elevation: 10,
-        */
-    }
+    modal: {
+        container: {
+            flex: 1,
+            backgroundColor: '#fff', 
+            borderTopLeftRadius: 30, 
+            borderTopRightRadius: 30,
+            /*
+            shadowColor: "#000",
+            shadowOffset: { width: 0, height: -2 },
+            shadowOpacity: 0.2,
+            shadowRadius: 5,
+            elevation: 10,
+            */
+        },
+        close: {
+            flex: 1, 
+            alignItems: 'flex-end', 
+            justifyContent: 'center'
+        }
+    } 
 });

@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { synchronize } from "../store/dataSlice";
 import { Modal, View } from "native-base";
 import LogoIcon from "./icons/LogoIcon";
+import { searchlist } from "../store/searchItemsSlice";
 
 
 export default function Synchronize({ dir }) {
@@ -25,6 +26,12 @@ export default function Synchronize({ dir }) {
                     }
                 });
                 dispatch(synchronize(items));
+
+                
+                const search_items = result.data.flatMap(item => 
+                    item.dirs.flatMap(dir => dir.files)
+                );
+                dispatch(searchlist(search_items))
             }
 
             if(!result.status)

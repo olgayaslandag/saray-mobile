@@ -1,7 +1,7 @@
 import { useRef, useEffect } from "react";
 import { Box, Input } from "native-base";
 import SearchIcon from "../icons/SearchIcon";
-import { StyleSheet } from "react-native";
+import { StyleSheet, Keyboard } from "react-native";
 
 export default function SearchFormInput({ pt, search, setSearch, order, setOpen, width="100%" }) {        
     const ref = useRef(null);
@@ -12,8 +12,10 @@ export default function SearchFormInput({ pt, search, setSearch, order, setOpen,
     }, [search, order]);
 
     function HandleFocus() {
-        if(order === 1)
+        if(order === 1) {
+            Keyboard.dismiss();
             setOpen(true)
+        }            
     }
     return (
         <Input 
@@ -26,6 +28,7 @@ export default function SearchFormInput({ pt, search, setSearch, order, setOpen,
             pt={pt ? pt : "2"}
             onFocus={HandleFocus}
             ref={ref}
+            
             InputRightElement={
                 <Box 
                     bg="white" 
@@ -45,7 +48,7 @@ export default function SearchFormInput({ pt, search, setSearch, order, setOpen,
                     />
                 </Box>                      
             } 
-            onChangeText={(e) => setSearch(e)}
+            onChangeText={setSearch}
             value={search}
         />
     );
