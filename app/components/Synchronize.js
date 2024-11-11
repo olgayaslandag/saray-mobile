@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { fileListApi } from "../api/fileListApi";
 import { useDispatch } from "react-redux";
 import { synchronize } from "../store/dataSlice";
-import { Modal, View, Text, Image } from "native-base";
+import { Modal, View } from "native-base";
 import LogoIcon from "./icons/LogoIcon";
 
 
@@ -34,6 +34,7 @@ export default function Synchronize({ dir }) {
         })();
     }, [dir]);
 
+    return null;
     return (
         <Modal isOpen={process} animationType="slide" transparent={true} bgColor="white">
             <View>

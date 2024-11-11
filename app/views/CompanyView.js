@@ -7,8 +7,8 @@ const backgroundImage = 'https://saray.com/wp-content/uploads/2024/04/fabrika-1-
 export default function CompanyView() {
     return (
         <ImageBackground source={{uri: backgroundImage}} style={styles.background} resizeMode="cover">                        
-            <ScrollView>
-                <StaticHeader />
+            <StaticHeader />
+            <ScrollView>                
                 <Box style={styles.contentBox} p="5">
                     <Text style={styles.pageTitle}>1980 yılından bu yana Saray Alüminyum,</Text>
                     <Text fontSize="16">1980 yılından bu yana Saray Alüminyum, öncü ve yenilikçi iç ve dış mekan çözümleri ile geleceğin mimari yapılarını inşa etmede büyük bir rol oynamaktadır. Saray Alüminyum, sektörlerin ihtiyaç duyduğu endüstriyel ve standart kesitli profiller üreten kapı, pencere, cephe ve küpeşte sistemleri, alüminyum kompozit panel, PVC kapı ve pencere sistemleri, panjur sistemlerinin yanı sıra makine, aydınlatma, asansör vb. sektörlerine de üretim yapmaktadır.</Text>

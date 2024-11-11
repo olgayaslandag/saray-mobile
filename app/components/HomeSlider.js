@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { Box, Image, Text } from "native-base";
 import { StyleSheet, FlatList, Dimensions } from "react-native";
+import { LinearGradient } from 'expo-linear-gradient';
 
 const DATA = [
     {
@@ -64,7 +65,11 @@ const ITEM_WIDTH = width * 0.7;
 function Item({ title, index, img }) {
     return (
         <Box style={{...styles.item, marginRight: index === DATA.length-1 ? 20 : 15}}>
-            <Image source={img} alt={title} width={ITEM_WIDTH} height="73%" style={styles.image}></Image>
+            <Image source={img} alt={title} width={ITEM_WIDTH} height="100%" style={styles.image}></Image>
+            
+            <LinearGradient colors={['rgba(0, 0, 0, 0)', 'rgba(0, 0, 0, 0.4)']} style={{...styles.overlayTitle, width: ITEM_WIDTH}}>
+                <Text style={styles.title}>{title}</Text>
+            </LinearGradient>            
         </Box>
     );
 }
@@ -82,7 +87,7 @@ export default function HomeSlider({ setActive }) {
 
 
     return (
-        <Box mt="2">
+        <Box flex="1">
             <FlatList
                 data={DATA}
                 renderItem={({item, index}) => <Item index={index} title={item.title} img={item.img} />}
@@ -108,7 +113,8 @@ const styles = StyleSheet.create({
       marginVertical: 8,
       marginHorizontal: 0,    
       width: ITEM_WIDTH,
-      marginRight: 15
+      marginRight: 15,
+      position: 'relative',
     },
     title: {
       fontSize: 32,
@@ -116,5 +122,20 @@ const styles = StyleSheet.create({
     image: {
         borderRadius: 30,
         marginLeft: 20
+    },
+    overlayTitle: {
+        flex: 1,
+        position: 'absolute',
+        top: 0,
+        left: 20,
+        height: "100%",
+        padding: 20,
+        justifyContent: 'flex-end',    
+        borderRadius: 30,
+    },
+    title: {
+        fontSize: 22,
+        fontWeight: 600,
+        color: 'white',
     }
   });

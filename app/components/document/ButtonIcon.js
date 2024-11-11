@@ -62,8 +62,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   iconBox: {
-    width: 70,
-    height: 70,
+    width: 80,
+    height: 80,
     borderWidth: 1,
     borderRadius: 20,
     borderColor: '#F1F1F1',
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
     padding: 0,
   },
   iconTitle: {
-    width: 70,
+    width: 80,
     fontSize: 12,
     textAlign: 'center'
   },

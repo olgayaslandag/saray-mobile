@@ -70,13 +70,13 @@ export default function App() {
         <Synchronize />
         <StatusBar style="auto" hidden={true} />
         <NavigationContainer onReady={onLayoutRootView}>
-          <Tab.Navigator tabBar={(props) => <CustomTabBar {...props} />} screenOptions={{headerShown: false}}>
-            <Tab.Screen name="Home" component={HomeView} options={{headerShown: false}} />
-            <Tab.Screen name="Documents" component={DocumentsView} />
-            <Tab.Screen name="Sustainability" component={SustainabilityView} />
-            <Tab.Screen name="Company" component={CompanyView} />
-            <Tab.Screen name="Notification" component={NotificationsView} />
-          </Tab.Navigator>
+            <Tab.Navigator tabBar={(props) => <CustomTabBar {...props} />} screenOptions={{headerShown: false}}>
+              <Tab.Screen name="Home" component={HomeView} options={{headerShown: false}} />
+              <Tab.Screen name="Documents" component={DocumentsView} />
+              <Tab.Screen name="Sustainability" component={SustainabilityView} />
+              <Tab.Screen name="Company" component={CompanyView} />
+              <Tab.Screen name="Notification" component={NotificationsView} />
+            </Tab.Navigator>
         </NavigationContainer>
       </NativeBaseProvider>
     </Provider>

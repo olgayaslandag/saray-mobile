@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Box, Text, Stack, HStack, VStack } from "native-base";
+import { Box, Text, Stack, HStack } from "native-base";
 import { ImageBackground } from "react-native";
 import HeaderUser from "../components/header/HeaderUser";
 import SearchForm from "../components/header/SearchForm";
@@ -14,7 +14,7 @@ export default function HomeScreen() {
       source={active.bgimage}
       style={{ width: "100%", height: "100%" }} 
       resizeMode="cover">
-      <Box px="5">
+      <Box px="5" flex="2">
         <Stack space={3} direction="column">        
             <HStack mt="10">
               <HeaderUser />
@@ -26,9 +26,9 @@ export default function HomeScreen() {
         <Text fontSize="24" fontWeight="700" mt="5">Yenilikler</Text>
       </Box>
 
-
-      <HomeSlider setActive={setActive} />
-
+      <Box flex="3" style={{marginBottom: 80}}>
+        <HomeSlider setActive={setActive} />
+      </Box>
       
     </ImageBackground>
   );

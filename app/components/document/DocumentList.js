@@ -6,7 +6,7 @@ import PdfViewer from "../PdfViewer";
 
 const imageSize = Dimensions.get("window").width / 3 - 20;
 
-export default function DocumentList({ dirs, display }) {
+export default function DocumentList({ dirs, display, search=false }) {
   const [selected, setSelected] = useState("");
   const [isLoading, setIsLoading] = useState(true);
 
@@ -23,14 +23,14 @@ export default function DocumentList({ dirs, display }) {
 
 
   if (isLoading) {
+    return null;
     return (
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <ActivityIndicator size="large" color="#0000ff" />
+        <ActivityIndicator size="large" color="#EA0029" />
         <Text>Yükleniyor...</Text>
       </View>
     );
   }
-
 
 
   return (
@@ -39,8 +39,8 @@ export default function DocumentList({ dirs, display }) {
       <Stack space={4} mb={4} style={{display: display}}>
         <VStack justifyContent="space-between">
           {dirs.map((dir, dirIndex) => (
-            <Box key={dirIndex} mb={4}>
-              <Text mb={2} fontWeight="bold" fontSize="18">{dir.title.split(" | ")[1]}</Text>
+            <Box key={dirIndex} mb={search ? 0 : 4}>
+              {!search && <Text mb={2} fontWeight="bold" fontSize="18">{dir.title.split(" | ")[1]}</Text>}
 
               {Array.from({ length: Math.ceil(dir.files.length / 3) }).map((_, rowIndex) => (
                 <HStack key={rowIndex} space={3} justifyContent="space-between" mb={4}>
