@@ -7,7 +7,6 @@ const DATA = [
     {
         id: 1,
         title: 'Alüminyum Ekstrüzyon',
-        desc: 'Gündem',
         img: require('../../assets/home/home-ekstruzyon.jpg'),
         bgimage: require('../../assets/home/bg/home-bg-ekstruzyon.jpg')
     },
@@ -15,7 +14,6 @@ const DATA = [
     {
         id: 2,
         title: 'Geri Dönüşüm Merkezi & Biyet Döküm',
-        desc: 'Gündem',
         img: require('../../assets/home/home-ekstruzyon.jpg'),
         bgimage: require('../../assets/home/bg/home-bg-ekstruzyon.jpg')
     },
@@ -23,35 +21,30 @@ const DATA = [
     {
         id: 3,
         title: 'PVC Sistemleri',
-        desc: 'Gündem',
         img: require('../../assets/home/home-pvc.jpg'),
         bgimage: require('../../assets/home/bg/home-bg-pvc.jpg')
     },
     {
         id: 4,
         title: 'Kompozit Panel',
-        desc: 'Gündem',
         img: require('../../assets/home/home-kompozit.jpg'),
         bgimage: require('../../assets/home/bg/home-bg-kompozit.jpg')
     },
     {
         id: 5,
         title: 'Panjur ve Kepenk Sistemleri',
-        desc: 'Gündem',
         img: require('../../assets/home/home-panjur.jpg'),
         bgimage: require('../../assets/home/bg/home-bg-panjur.jpg')
     },
     {
         id: 6,
         title: 'Turizm',
-        desc: 'Gündem',
         img: require('../../assets/home/home-turizm.jpg'),
         bgimage: require('../../assets/home/bg/home-bg-turizm.jpg')
     },
     {
         id: 7,
         title: 'Enerji',
-        desc: 'Gündem',
         img: require('../../assets/home/home-enerji.jpg'),
         bgimage: require('../../assets/home/bg/home-bg-enerji.jpg')
     },
@@ -65,7 +58,7 @@ const ITEM_WIDTH = width * 0.7;
 function Item({ title, index, img }) {
     return (
         <Box style={{...styles.item, marginRight: index === DATA.length-1 ? 20 : 15}}>
-            <Image source={img} alt={title} width={ITEM_WIDTH} height="100%" style={styles.image}></Image>
+            <Image source={img} alt={title} width={ITEM_WIDTH} height="100%" style={styles.image} resizeMode="cover"></Image>
             
             <LinearGradient colors={['rgba(0, 0, 0, 0)', 'rgba(0, 0, 0, 0.4)']} style={{...styles.overlayTitle, width: ITEM_WIDTH}}>
                 <Text style={styles.title}>{title}</Text>

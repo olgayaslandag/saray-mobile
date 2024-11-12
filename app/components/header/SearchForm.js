@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Box, Button, HStack, Text } from "native-base";
-import { StyleSheet, Modal } from "react-native";
+import { StyleSheet, Modal, TouchableOpacity } from "react-native";
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 
 import SearchFormInput from "./SearchFormInput";
@@ -18,7 +18,11 @@ export default function SearchForm({ pt }) {
     
     return (
         <Box alignItems="center" w="100%" mt="5">
-            {!search && !open && <SearchFormInput pt={pt} search={search} setSearch={setSearch} order={1} setOpen={setOpen} />}            
+            {!search && !open && (
+                <TouchableOpacity activeOpacity={1} onPress={() => setOpen(true)}>
+                    <SearchFormInput pt={pt} search={search} setSearch={setSearch} order={1} setOpen={setOpen} />
+                </TouchableOpacity>
+            )}            
             
             <Modal animationType="slide" visible={search || open ? true : false} transparent={false}>
                 <Box style={styles.modal.container}>

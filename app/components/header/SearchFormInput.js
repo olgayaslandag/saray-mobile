@@ -28,7 +28,7 @@ export default function SearchFormInput({ pt, search, setSearch, order, setOpen,
             pt={pt ? pt : "2"}
             onFocus={HandleFocus}
             ref={ref}
-            
+            editable={order === 2 ? true : false}
             InputRightElement={
                 <Box 
                     bg="white" 

@@ -1,5 +1,6 @@
+import { useEffect, useState } from "react";
 import { View } from "native-base";
-import { TouchableOpacity } from 'react-native';
+import { TouchableOpacity, Keyboard } from 'react-native';
 
 import HomeIcon from "./icons/HomeIcon"
 import DocumentIcon from "./icons/DocumentIcon";
@@ -29,6 +30,24 @@ function GetIcon({ name, isFocused, callback }) {
 
 
 export default function CustomTabBar({ state, descriptors, navigation }) {
+  const [isKeyboardVisible, setKeyboardVisible] = useState(false);
+
+  useEffect(() => {
+    const keyboardDidShowListener = Keyboard.addListener("keyboardDidShow", () => {
+      setKeyboardVisible(true);
+    });
+    const keyboardDidHideListener = Keyboard.addListener("keyboardDidHide", () => {
+      setKeyboardVisible(false);
+    });
+
+    return () => {
+      keyboardDidShowListener.remove();
+      keyboardDidHideListener.remove();
+    };
+  }, []);
+
+  //if (isKeyboardVisible) return null;
+
 
   return (
       <View style={styles.tabContainer}>
