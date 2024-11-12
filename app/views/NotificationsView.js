@@ -1,14 +1,22 @@
+import { useState, useEffect } from "react";
 import { HStack, ScrollView, Stack, Text, Box, View } from "native-base"
 import StaticHeader from "../components/header/StaticHeader";
 import { StyleSheet } from "react-native";
+import { getDataNotifications } from "../api/getDataNotifications";
 
-const items = [1, 2, 3, 4, 5, 6];
+export default function NotificationsView() {  
+    const [items, setItems]  = useState([]);
 
-export default function NotificationsView() {    
+    useEffect(() => {
+        (async () => {
+            const result = await getDataNotifications();
+            if(result.status)
+                setItems(result.data);
+        })();
+    }, []);
     return (
         <View>
-            <StaticHeader />
-        
+            <StaticHeader />        
             <ScrollView style={styles.container}>            
                     <Stack>
                         <HStack>                        
@@ -16,10 +24,11 @@ export default function NotificationsView() {
                         </HStack>
                     </Stack>
 
-                    <Box p="5">
+                    <Box p="5" style={{marginBottom: 50}}>
                     {items.map((item, index) => (
                         <Box key={index} style={{...styles.text, borderBottomWidth: index + 1 === items.length ? 0 : 1}}>
-                            <Text style={{fontSize: 16}}>1980 yılından bu yana Saray Alüminyum, öncü ve yenilikçi iç ve dış mekan çözümleri ile geleceğin mimari yapılarını inşa etmede büyük bir rol oynamaktadır. Saray Alüminyum, sektörlerin ihtiyaç duyduğu endüstriyel ve standart kesitli profiller üreten kapı, pencere, cephe ve küpeşte sistemleri, alüminyum kompozit panel, PVC kapı ve pencere sistemleri, panjur sistemlerinin yanı sıra makine, aydınlatma, asansör vb. sektörlerine de üretim yapmaktadır.</Text>
+                            <Text style={{fontSize: 16}}>{item.message}</Text>
+                            <Text style={{fontSize: 12, textAlign: 'right'}}>{item.time}</Text>
                         </Box>
                     ))}
                 </Box>
